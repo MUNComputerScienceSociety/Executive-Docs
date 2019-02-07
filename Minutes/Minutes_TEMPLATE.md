@@ -2,6 +2,10 @@
 % Meeting Minutes
 % <DATE (such as February 7th, 2019)>
 
+# Attendance
+
+* Include a bullet list of people who attended, and their positions
+
 # Agenda Topics
 
 ## Include a sub-heading for every topic from the agenda
@@ -12,4 +16,4 @@ Include details about the discussion here, either as a paragraph or bullet point
 
 ## Include a sub-heading here for every topic *not* from the agenda
 
-Once again, include details about the discussion 
+Once again, include details about the discussion.
