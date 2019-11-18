@@ -20,7 +20,7 @@ MONTHS = [
     "December",
 ]
 
-minute_files: List[pathlib.Path] = pathlib.Path("/Minutes").glob("*.md")
+minute_files: List[pathlib.Path] = list(pathlib.Path("/Minutes").glob("*.md"))
 print(minute_files)
 output_path = pathlib.Path("/output")
 
