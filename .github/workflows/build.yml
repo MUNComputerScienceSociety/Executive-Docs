@@ -47,7 +47,7 @@ jobs:
       - name: Copy documents to server
         uses: appleboy/scp-action@v0.0.1
         with:
-          host: garfield.cs.mun.ca
+          host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "Docs/"
