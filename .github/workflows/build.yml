@@ -38,7 +38,7 @@ jobs:
   push:
     name: Push documents
     runs-on: ubuntu-latest
-    needs: [build_meetings, build_agendas]
+    needs: [build_minutes, build_agendas]
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v1
