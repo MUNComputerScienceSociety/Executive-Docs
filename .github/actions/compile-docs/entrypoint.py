@@ -26,7 +26,7 @@ logging.basicConfig(
 logger.info("Discovering meeting minutes...")
 minute_files: List[pathlib.Path] = list(pathlib.Path("./Minutes/").glob("*.md"))
 logger.info(f"{len(minute_files)} meeting minutes found.")
-output_path = pathlib.Path("/output")
+output_path = pathlib.Path("./output")
 minute_output_path = output_path / "Minutes"
 
 years = {}
