@@ -1,2 +1,4 @@
-// Ignore all compiled PDFs
+# Ignore all compiled PDFs
 *.pdf
+
+.vscode/

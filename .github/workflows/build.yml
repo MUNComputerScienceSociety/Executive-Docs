@@ -1,14 +1,17 @@
 name: Update Docs
 on: push
 jobs:
-  build:
-    name: Update Docs
+  build_minutes:
+    name: Build meeting minutes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Compile docs
         uses: ./.github/actions/compile-docs
+        with:
+          input_path: ./Minutes/
+          output_path: ./output/Minutes/
       - name: Upload docs (GitHub Artifacts)
         uses: actions/upload-artifact@v1
         with:
