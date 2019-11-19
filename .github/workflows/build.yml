@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Compile docs
+      - name: Compile minutes
         uses: ./.github/actions/compile-docs
         with:
           input_path: ./Minutes/
@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Compile docs
+      - name: Compile agendas
         uses: ./.github/actions/compile-docs
         with:
           input_path: ./Agendas/
