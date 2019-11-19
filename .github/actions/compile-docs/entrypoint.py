@@ -1,10 +1,7 @@
-from typing import List
-
-from pprint import pprint
-
+import logging
 import pathlib
 import subprocess
-import logging
+from typing import List
 
 MONTHS = [
     "January",
@@ -22,7 +19,9 @@ MONTHS = [
 ]
 
 logger = logging.getLogger("Doc Builder")
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO, format="[%(asctime)s][%(name)s]{%(levelname)s} %(message)s"
+)
 
 logger.info("Discovering meeting minutes...")
 minute_files: List[pathlib.Path] = list(pathlib.Path("./Minutes/").glob("*.md"))
@@ -73,5 +72,3 @@ for year, months in years.items():
                     file_output_path,
                 ]
             )
-
-pprint(years)
