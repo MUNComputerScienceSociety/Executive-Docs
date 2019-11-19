@@ -51,4 +51,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "Docs/"
-          target: "action_test"
+          target: ".www/archive/"
+          strip_components: 1
