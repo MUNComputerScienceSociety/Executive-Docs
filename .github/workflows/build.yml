@@ -7,5 +7,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Compile Docs
+      - name: Compile docs
         uses: ./.github/actions/compile-docs
+      - name: Upload docs (GitHub Artifacts)
+        uses: actions/upload-artifact@v1
+        with:
+          name: Docs
+          path: output/

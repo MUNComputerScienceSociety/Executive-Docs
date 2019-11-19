@@ -27,6 +27,7 @@ logger.info("Discovering meeting minutes...")
 minute_files: List[pathlib.Path] = list(pathlib.Path("./Minutes/").glob("*.md"))
 logger.info(f"{len(minute_files)} meeting minutes found.")
 output_path = pathlib.Path("/output")
+minute_output_path = output_path / "Minutes"
 
 years = {}
 
@@ -46,7 +47,7 @@ logger.info(
 )
 
 for year, months in years.items():
-    year_path = output_path / year
+    year_path = minute_output_path / year
     logger.info(f"Building meeting minutes for {year} (output path {year_path})")
 
     for month, files in months.items():
