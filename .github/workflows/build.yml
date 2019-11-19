@@ -59,7 +59,7 @@ jobs:
           strip_components: 1
           overwrite: true
       - name: Set document permissions
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.0.4
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
