@@ -26,7 +26,9 @@ output_path = pathlib.Path("/output")
 years = {}
 
 for file_ in minute_files:
-    _, month_number, __, year = file_.name.split("_")
+    if file_.stem == "Minutes_TEMPLATE":
+        continue
+    _, month_number, __, year = file_.stem.split("_")
     if year not in years:
         years[year] = {}
     month = MONTHS[int(month_number) - 1]
