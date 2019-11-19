@@ -53,6 +53,7 @@ jobs:
           source: "Docs/"
           target: ".www/archive/"
           strip_components: 1
+          overwrite: true
       - name: Set document permissions
         uses: appleboy/ssh-action@master
         with:
