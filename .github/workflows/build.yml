@@ -53,3 +53,12 @@ jobs:
           source: "Docs/"
           target: ".www/archive/"
           strip_components: 1
+      - name: Set document permissions
+        uses: appleboy/ssh-action@master
+        with:
+          host: "garfield.cs.mun.ca"
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            chmod -R 0755 .www/archive/meeting_minutes
+            chmod -R 0755 .www/archive/meeting_agendas
