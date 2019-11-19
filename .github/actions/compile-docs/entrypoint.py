@@ -29,7 +29,7 @@ for file_ in minute_files:
     _, month_number, __, year = file_.stem.split("_")
     if year not in years:
         years[year] = {}
-    month = MONTHS[int(month_number) + 1]
+    month = MONTHS[int(month_number) - 1]
     if month not in years[year]:
         years[year][month] = []
     years[year][month].append(file_)
