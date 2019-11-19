@@ -45,7 +45,7 @@ jobs:
         with:
           name: Docs
       - name: Copy documents to server
-        uses: appleboy/scp-action@v0.0.1
+        uses: appleboy/scp-action@v0.0.4
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
