@@ -1,5 +1,9 @@
 name: Update Docs
-on: push
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   build_minutes:
     name: Build meeting minutes
