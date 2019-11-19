@@ -4,7 +4,6 @@ from pprint import pprint
 
 import pathlib
 import subprocess
-import shlex
 import logging
 
 MONTHS = [
@@ -23,6 +22,7 @@ MONTHS = [
 ]
 
 logger = logging.getLogger("Doc Builder")
+logging.basicConfig(level=logging.INFO)
 
 logger.info("Discovering meeting minutes...")
 minute_files: List[pathlib.Path] = list(pathlib.Path("./Minutes/").glob("*.md"))
@@ -67,7 +67,7 @@ for year, months in years.items():
                     "-f",
                     "markdown",
                     "-t",
-                    "pdf",
+                    "latex",
                     "-s",
                     "-o",
                     file_output_path,
