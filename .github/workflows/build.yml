@@ -11,7 +11,7 @@ jobs:
         uses: ./.github/actions/compile-docs
         with:
           input_path: ./Minutes/
-          output_path: ./output/Minutes/
+          output_path: ./output/meeting_minutes/
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
@@ -28,7 +28,7 @@ jobs:
         uses: ./.github/actions/compile-docs
         with:
           input_path: ./Agendas/
-          output_path: ./output/Agendas/
+          output_path: ./output/meeting_agendas/
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
