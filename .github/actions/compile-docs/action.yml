@@ -1,0 +1,14 @@
+name: Compile Docs
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  input_path:
+    description: 'Path to load document source from'
+    required: true
+  output_path:
+    description: 'Path to write compiled documents to'
+    required: true
+branding:
+  icon: 'book-open'  
+  color: 'green'
