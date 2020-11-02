@@ -11,11 +11,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Compile minutes
-        uses: ./.github/actions/compile-docs
-        with:
-          input_path: ./Minutes/
-          output_path: ./output/meeting_minutes/
+        run: |
+          apt-get install -y pandoc
+          pip install -r requirements.txt
+          python cli.py --input ./Minutes/ --output ./output/meeting_minutes/
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -28,11 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Compile agendas
-        uses: ./.github/actions/compile-docs
-        with:
-          input_path: ./Agendas/
-          output_path: ./output/meeting_agendas/
+        run: |
+          apt-get install -y pandoc
+          pip install -r requirements.txt
+          python cli.py --input ./Agendas/ --output ./output/meeting_agendas/
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
