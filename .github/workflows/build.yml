@@ -16,6 +16,7 @@ jobs:
         run: |
           sudo apt-get install -y pandoc
           pip install -r requirements.txt
+          mkdir ./output/meeting_minutes/
           python3 cli.py --input ./Minutes/ --output ./output/meeting_minutes/
 
       - name: Upload artifacts
@@ -35,6 +36,7 @@ jobs:
         run: |
           sudo apt-get install -y pandoc
           pip install -r requirements.txt
+          mkdir ./output/meeting_agendas/
           python3 cli.py --input ./Agendas/ --output ./output/meeting_agendas/
 
       - name: Upload artifacts
