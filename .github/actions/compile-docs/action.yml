@@ -1,4 +1,5 @@
 name: Compile Docs
+description: Compiles the meeting agendas/minutes into PDF form using Pandoc
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -10,5 +11,5 @@ inputs:
     description: 'Path to write compiled documents to'
     required: true
 branding:
-  icon: 'book-open'  
+  icon: 'book-open'
   color: 'green'
