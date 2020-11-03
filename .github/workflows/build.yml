@@ -20,7 +20,7 @@ jobs:
           python3 cli.py builddocs --base /~csclub/archive/ --input . --output ./output/documents/
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
           name: Docs
           path: output
@@ -31,14 +31,9 @@ jobs:
     needs: [build]
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v1
         with:
           name: Docs
-
-      - name: debugging
-        run: |
-          ls
-          pwd
 
       - name: Copy documents to server
         uses: appleboy/scp-action@v0.1.1
