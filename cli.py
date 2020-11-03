@@ -101,7 +101,7 @@ def build_page(base: str, title: str, content: str, output_path: pathlib.Path):
             <p class="author">
             Last built {TODAY}
             </p>
-            <a href=".."><p>Back a directory</p></a>
+            <a href=".."><p>Return to homepage</p></a>
         </header>
         {content}
     </body>
