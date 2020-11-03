@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "Docs/"
-          target: ".www/"
+          target: ".www/executive-documents"
           strip_components: 1
           overwrite: true
 
