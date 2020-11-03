@@ -35,8 +35,13 @@ jobs:
         with:
           name: Docs
 
+      - name: debugging
+        run: |
+          ls
+          pwd
+
       - name: Copy documents to server
-        uses: appleboy/scp-action@v0.0.4
+        uses: appleboy/scp-action@v0.1.1
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
@@ -47,7 +52,7 @@ jobs:
           overwrite: true
 
       - name: Set document permissions
-        uses: appleboy/ssh-action@v0.0.4
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
