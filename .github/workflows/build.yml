@@ -17,13 +17,13 @@ jobs:
           sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended
           pip install -r requirements.txt
           mkdir -p ./output/documents
-          python3 cli.py builddocs --base /~csclub/archive/documents/ --input . --output ./output/documents/
+          python3 cli.py builddocs --base /~csclub/executive-documents/ --input . --output ./executive-documents/
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
           name: Docs
-          path: output
+          path: executive-documents
 
   push:
     name: Push documents
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "Docs/"
-          target: ".www/archive/"
+          target: ".www/"
           strip_components: 1
           overwrite: true
 
@@ -53,4 +53,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            chmod -R 0755 .www/archive/documents
+            chmod -R 0755 .www/executive-documents
