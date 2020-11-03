@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended
           pip install -r requirements.txt
-          mkdir -p ./output/documents
+          mkdir -p ./excutive-documents/
           python3 cli.py builddocs --base /~csclub/executive-documents/ --input . --output ./executive-documents/
 
       - name: Upload artifacts
