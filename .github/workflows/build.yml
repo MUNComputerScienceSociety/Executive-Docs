@@ -5,65 +5,52 @@ on:
       - master
 
 jobs:
-  build_minutes:
-    name: Build meeting minutes
+  build:
+    name: Build documents
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Compile minutes
-        uses: ./.github/actions/compile-docs
-        with:
-          input_path: ./Minutes/
-          output_path: ./output/meeting_minutes/
+        uses: actions/checkout@v2
+
+      - name: Compile documents
+        run: |
+          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended
+          pip install -r requirements.txt
+          mkdir -p ./executive-documents/
+          python3 cli.py builddocs --base /~csclub/executive-documents/ --input . --output ./executive-documents/
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
           name: Docs
-          path: output
-  
-  build_agendas:
-    name: Build meeting agendas
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Compile agendas
-        uses: ./.github/actions/compile-docs
-        with:
-          input_path: ./Agendas/
-          output_path: ./output/meeting_agendas/
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: Docs
-          path: output
-  
+          path: executive-documents
+
   push:
     name: Push documents
     runs-on: ubuntu-latest
-    needs: [build_minutes, build_agendas]
+    needs: [build]
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v1
         with:
           name: Docs
+
       - name: Copy documents to server
-        uses: appleboy/scp-action@v0.0.4
+        uses: appleboy/scp-action@v0.1.1
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "Docs/"
-          target: ".www/archive/"
+          target: ".www/executive-documents"
           strip_components: 1
           overwrite: true
+
       - name: Set document permissions
-        uses: appleboy/ssh-action@v0.0.4
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: "garfield.cs.mun.ca"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            chmod -R 0755 .www/archive/meeting_minutes
-            chmod -R 0755 .www/archive/meeting_agendas
+            chmod -R 0755 .www/executive-documents

@@ -2,7 +2,9 @@
 
 This repository contains executive documents for the society that are intended for public access, such as meeting agendas and minutes.
 
-The compiled version of all of the documents in PDF format [can be found here.](https://www.cs.mun.ca/~csclub/archive/meeting_minutes/)
+The compiled version of all of the documents in PDF format [can be found here.](https://www.cs.mun.ca/~csclub/executive-documents/)
+
+Once updates are pushed to `master`, the website is updated automatically.
 
 ## Format
 
