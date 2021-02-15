@@ -18,8 +18,8 @@ jobs:
           (
             cd ~
             mkdir texmf
-            tlmgr update --self
             tlmgr init-usertree
+            tlmgr update --self
           )
           pip install -r requirements.txt
           mkdir -p ./executive-documents/
