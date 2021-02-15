@@ -14,9 +14,9 @@ jobs:
 
       - name: Compile documents
         run: |
-          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended
-          tlmgr init-usertree
-          tlmgr install pdftexcmds
+          sudo apt-get install -y pandoc texlive-base texlive-latex-base texlive-fonts-recommended
+          #tlmgr init-usertree
+          #tlmgr install pdftexcmds
           pip install -r requirements.txt
           mkdir -p ./executive-documents/
           python3 cli.py builddocs --base /~csclub/executive-documents/ --input . --output ./executive-documents/
