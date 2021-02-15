@@ -14,7 +14,8 @@ jobs:
 
       - name: Compile documents
         run: |
-          sudo apt-get install -y pandoc texlive-base texlive-latex-base texlive-fonts-recommended
+          sudo apt-get install -y pandoc texlive-base texlive-latex-base texlive-fonts-recommended xzdec
+          # tlmgr update --self
           tlmgr init-usertree
           tlmgr install pdftexcmds
           pip install -r requirements.txt
